@@ -1,0 +1,5 @@
+[default]
+template_dir = "main/src/features"
+
+[default.databases.logs]
+url = "logs.sqlite"

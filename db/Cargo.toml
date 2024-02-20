@@ -1,0 +1,22 @@
+[package]
+name = "db"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sqlx = { version = "0.7.3", default-features = false, features = ["runtime-async-std", "macros", "migrate", "sqlite", "time", "json", "uuid", "chrono"]}
+rocket = { version = "0.5.0", default-features = false }
+time = { version = "0.3.34", default-features = false, features = ["formatting", "macros", "serde"] }
+chrono = { version = "*", features = ["serde"] }
+
+[dependencies.serde]
+version = "1.0.196"
+
+[dependencies.rocket_db_pools]
+version = "0.1.0"
+features = ["sqlx_sqlite"]
+
+[dependencies.uuid]
+version = "1.7.0"
+features = ["v4", "fast-rng", "serde"]
+

@@ -1,0 +1,16 @@
+{% block content %}
+We are live 🔴
+{% if logs %}
+{% for log in logs %}
+<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-400" role="alert">
+	<span class="font-medium">{{ log.date }}</span>
+	{{ log.message }}
+</div>
+
+{% endfor %}
+{% else %}
+<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-400" role="alert">
+No logs for now.
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% if logs %}
+<div class="divide-y divide-gray-400 dark:divide-white">
+	{% for log in logs %}
+	<div class="flex">
+		<div class="w-1/4 bg-gray-200 dark:bg-slate-700 align-center justify-center">
+			<span>O</span>
+			<span>{{ log.log_type }}</span>
+			<span class="border border-2 border-gray-400 bg-gray-200 dark:bg-slate-800 text-xs">{{ log.date |
+				date(format="%H:%M:%S")
+				}}
+			</span>
+		</div>
+		<div class="w-3/4">
+			<div class="my-3 mx-1">{{ log.data }}</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
