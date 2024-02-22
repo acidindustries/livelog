@@ -8,6 +8,7 @@ sqlx = { version = "0.7.3", default-features = false, features = ["runtime-async
 rocket = { version = "0.5.0", default-features = false }
 time = { version = "0.3.34", default-features = false, features = ["formatting", "macros", "serde"] }
 chrono = { version = "*", features = ["serde"] }
+payloads = { path = "../payloads" }
 
 [dependencies.serde]
 version = "1.0.196"
