@@ -1,0 +1,13 @@
+{% macro log_type(type) %}
+const tree = Tree.CreateTree(data);
+    const jsonView = new JsonView(tree);
+    jsonView.render(document.getElementById("{{ log.id }}"));
+{{ "payloads/" ~ type }}
+const tree = Tree.CreateTree(data);
+    const jsonView = new JsonView(tree);
+    jsonView.render(document.getElementById("{{ log.id }}"));
+{% endmacro log_type %}
+
+{% macro test() %}
+test
+{% endmacro test %}
