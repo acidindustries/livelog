@@ -1,0 +1,7 @@
+{% if logs %}
+<div id="refresher" class="hidden" hx-get="/new-logs/{{ logs[0].date }}" data-last="{{ logs[0].date }}" hx-trigger="every 1s" hx-target="#logs" hx-swap="afterbegin transition:true" hx-swap-oob="true"></div>
+{% for log in logs %}
+{% include "main/logchunk" %}
+{% endfor %}
+{% endif %}
+

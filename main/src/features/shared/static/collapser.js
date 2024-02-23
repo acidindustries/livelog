@@ -97,13 +97,33 @@
         const typeName = node.type
         switch (typeName) {
           case "object":
-            return `object {${Object.keys(node.value).length}}`
+            if (node.value !== null)
+                return `object {${Object.keys(node.value).length}}`
+            else
+                return 'null'
           case "array":
-            return `array [${Object.keys(node.value).length}]`
+            if (node.value !== null)
+                return `array {${Object.keys(node.value).length}}`
+            else
+                return 'null'
           default:
-            return node.value
+            if (node.value !== null)
+                return node.value
+            else
+                return 'null'
         }
-      }
+      }      
+      // const getValue = (node) => {
+      //   const typeName = node.type
+      //   switch (typeName) {
+      //     case "object":
+      //       return `object {${Object.keys(node.value).length}}`
+      //     case "array":
+      //       return `array [${Object.keys(node.value).length}]`
+      //     default:
+      //       return node.value
+      //   }
+      // }
 
       const arrowIcon = ["object", "array"].includes(node.type) ? `<i class="fas fa-caret-down"></i>` : ""
       const divFlag = document.createRange().createContextualFragment(`<div style="margin-left:${node.depth * 18}px">${arrowIcon}</div>`)

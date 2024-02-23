@@ -21,14 +21,15 @@ pub async fn logs(mut db: Connection<Db>) -> Template {
     Template::render("main/logentry", context! { logs: logs.unwrap_or_default() })
 }
 
-#[get("/new-logs")]
-pub async fn new_logs(mut db: Connection<Db>) -> Template {
+#[get("/new-logs/<date>")]
+pub async fn new_logs<'a>(mut db: Connection<Db>, date: &'a str) -> Template {
     let logs: Result<Vec<Log>, _> =
-        sqlx::query_as::<_, Log>(r"SELECT * FROM logs WHERE date >= now() ORDER BY date DESC")
+        sqlx::query_as::<_, Log>(format!(r"SELECT * FROM logs WHERE DATETIME(date) > DATETIME('{}') ORDER BY date DESC", date).as_str())
             .fetch_all(&mut **db)
             .await;
 
-    Template::render("main/logentry", context! { logs: logs.unwrap_or_default()})
+    log::debug!("{:?}", logs);
+    Template::render("main/newlogs", context! { logs: logs.unwrap_or_default()})
 }
 
 #[post("/ingest", format = "application/json", data = "<payload>")]

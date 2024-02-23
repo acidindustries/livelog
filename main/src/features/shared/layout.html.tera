@@ -53,9 +53,8 @@
 		</nav>
 	</div>
 	<div class="flex-1 flex flex-col bg-white dark:bg-slate-800 sm:flex-row overflow-auto max-h-screen">
-		<main class="flex-1 whitespace-nowrap rounded-sm" id="content" hx-get="/logs" hx-trigger="load, every 30s">
+		<main id="mainContent" class="flex-1 whitespace-nowrap rounded-sm" id="content" hx-get="/logs" hx-trigger="load">
 		</main>
-
 	</div>
 	</div>
 	{% block flash %}

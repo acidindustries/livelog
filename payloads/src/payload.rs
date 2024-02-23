@@ -14,6 +14,7 @@ pub enum PayloadData {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Payload {
+    #[serde(default)]
     date: DateTime<Utc>,
     // #[serde(flatten)]
     payload_data: PayloadData,
